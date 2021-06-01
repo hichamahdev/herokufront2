@@ -21,7 +21,7 @@ export class CheminHoComponent implements OnInit {
   arc: Arc[];
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['nom','equipementA','portA','PortB','equipementB','PortB','action'];
+  displayedColumns: string[] = ['nom','action'];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

@@ -26,24 +26,9 @@
       <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="equipementA">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> equipement A </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.equipement[0].nomEquip}} </mat-cell>
-</ng-container>
+  
 
-<ng-container matColumnDef="portA">
-  <mat-header-cell *matHeaderCellDef mat-sort-header> port A </mat-header-cell>
-  <mat-cell *matCellDef="let element"> {{element.port[0].nomPort}} </mat-cell>
-</ng-container>
-<ng-container matColumnDef="equipementB">
-  <mat-header-cell *matHeaderCellDef mat-sort-header> equipement B </mat-header-cell>
-  <mat-cell *matCellDef="let element"> {{element.equipement[1].nomEquip}} </mat-cell>
-</ng-container>
 
-<ng-container matColumnDef="portA">
-  <mat-header-cell *matHeaderCellDef mat-sort-header> port B </mat-header-cell>
-  <mat-cell *matCellDef="let element"> {{element.port[1].nomPort}} </mat-cell>
-</ng-container>
   
   <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
