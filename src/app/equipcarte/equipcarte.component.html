@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+    
+    <span  >Relation entre un type d'équipement et des types de cartes</span>
+    <span class="example-spacer" ></span>
+    
+  </mat-toolbar>
+  
+  <br>
+
+  <mat-card >
+<div class="container">
+<section  class="form-group">
+    <mat-form-field appearance="fill">
+        <mat-label>Equipements</mat-label>
+        <mat-select [(ngModel)]="equipement" name="equipements">
+          <mat-option *ngFor="let equipem of equipement" [value]="equipement">
+            {{equipem.nomEquip}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+  </section>
+
+
+
+<section  class="form-group">
+    <label for="typePort"> Type Carte </label>
+    <br>
+    <mat-form-field appearance="fill">
+        
+      <mat-label>select Type Carte</mat-label>
+      <mat-select [(ngModel)]="nomCartes" name="typeport" multiple>
+        <mat-option *ngFor="let carte of carte" [value]="carte.nomCarte">{{carte.nomCarte}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </section>
+
+  <button mat-raised-button color="primary" click="ajouter()" [disabled]="!nomCartes">Ok</button>&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button color="accent" click="Annuler()">Annuler</button>
+
+
+
+
+</div>
+
+</mat-card>

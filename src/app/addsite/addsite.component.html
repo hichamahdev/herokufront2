@@ -1,0 +1,29 @@
+<div class="container" style="text-align: center;" ><h2> Ajouter Un Site</h2> </div>
+
+<form class="container"  (ngSubmit)= "createSite()">
+
+    <div class="form-group">
+            <label for="nomSupEquip">Nom Site </label>
+            <input [(ngModel)]= "site.nom"  name= "nomSite" id="title" type="text" class="form-control" >
+    </div>
+    <div class="form-group ">
+        <label for="typeSite">select type site </label>
+    <select [(ngModel)]= "site.type" name="typeSite" class="form-control" >
+        
+        <option value="Site">Site</option>
+        <option value="Anneau">Anneau</option>
+        
+      </select>
+    </div>
+    <div class="form-group">
+        <label for="typeCarte"> Note </label>
+        <textarea [(ngModel)]= "site.notes" name= "noteSite" id="title" type="text" class="form-control" ></textarea>
+</div>
+
+    
+    
+    <button class="btn btn-primary" type="submit">Ajouter</button>&nbsp;&nbsp;&nbsp;
+    
+    
+
+</form>

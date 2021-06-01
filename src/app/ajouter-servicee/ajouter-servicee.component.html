@@ -1,0 +1,21 @@
+<div class="container" style="text-align: center;" ><h2> Ajouter service a un client</h2> </div>
+
+<form class="container"  (ngSubmit)= "ajouterService()">
+
+    <div class="form-group">
+            <label for="equipement">select Service</label>
+            <select [(ngModel)]= "id_service"  name= "nomService" id="title" type="text" class="form-control" >
+                <option *ngFor="let serv of services" [value]="serv.id">
+                        {{serv.nomService}}
+                </option>
+                </select>
+    </div>
+    
+    
+    
+    
+    <button class="btn btn-primary"  type="submit">Ajouter</button>&nbsp;&nbsp;&nbsp;
+    
+    
+
+</form>

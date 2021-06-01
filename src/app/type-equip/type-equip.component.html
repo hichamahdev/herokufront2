@@ -1,0 +1,133 @@
+
+<mat-toolbar color="primary">
+    
+  <span  >Liste des equipements</span>
+  <span class="example-spacer" ></span>
+  
+</mat-toolbar>
+
+<br>
+
+
+<div class="search-div">
+      <button mat-raised-button routerLink="/addequip">
+        <mat-icon>add</mat-icon>Ajouter Equipement
+      </button>
+
+      <mat-form-field class="search-form-field">
+          <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+          <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+            <mat-icon>close</mat-icon>
+          </button>
+      </mat-form-field>
+
+</div>
+
+<div class="mat-elevation-z8">
+<mat-table [dataSource]="listData" matSort>
+    <ng-container matColumnDef="nomSupEquip">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Type Equipement </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nomSupEquip}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nomEquip">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nom Equipement </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nomEquip}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="categorieEquip">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> categorie </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.categorieEquip}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="numbSlot">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de slot </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.numbSlot}} </mat-cell>
+</ng-container>
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+            <button (click)="deleteEquipement(element.id)" mat-icon-button color="warn" matTooltip="delete equipement" >
+                <mat-icon>delete</mat-icon>
+              </button>
+
+              <button mat-icon-button  (click)= "updateEquipement(element.id)" color="primary" matTooltip="edit equipement">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+              <button mat-icon-button  (click)= "afficherDetails(element.id)" color="accent" matTooltip="detail equipement" >
+                <mat-icon>launch</mat-icon>
+              </button>
+
+              <button mat-icon-button  (click)= "ConfigurerSlot(element.id)" color="warn" matTooltip="Configurer slot" >
+                <mat-icon>settings</mat-icon>
+              </button>
+
+              <button mat-icon-button  (click)= "ajouterCarte(element.id)" color="accent" matTooltip="Ajouter carte " >
+                <mat-icon>add</mat-icon>
+              </button>
+
+
+
+            
+        </mat-cell>
+    </ng-container>
+
+
+
+ <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"></mat-paginator>
+
+</div>
+
+
+<!-- <button mat-icon-button  routerLink="/addequip" class="ajouter"  #tooltip="matTooltip"
+matTooltip="Ajouter un equipement"
+matTooltipPosition="above"
+matTooltipHideDelay="100">
+    <mat-icon>add</mat-icon>
+  </button>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"> Nom Type Eqt</th>
+            <th scope="col"> Nom</th>
+            <th scope="col"> categorie</th>
+            <th scope="col"> Nombre de slot</th>
+            <th scope="col"> Debit max</th>
+            
+           <th scope="col"> Num de slot min</th>
+           <th scope="col"> Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let equip of equipements">
+        <td>{{equip.nomSupEquip}}</td>
+        <td>{{equip.nomEquip}}</td>
+        <td>{{equip.categorieEquip}}</td>
+        <td>{{equip.numbSlot}}</td>
+        <td>{{equip.debitMax}}</td>
+        <td>{{equip.numeroSlotMin}}</td>
+        <td>
+            
+            <button mat-icon-button  (click)= "updateEquipement(equip.id)" aria-label="Example icon button with a home icon">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button  (click)="deleteEquipement(equip.id)" aria-label="Example icon button with a home icon">
+                <mat-icon>delete</mat-icon>
+              </button>
+              
+            
+            <button  class="btn btn-info" (click)="afficherDetails(equip.id)"  >Afficher</button>&nbsp;&nbsp;&nbsp;
+            <button  class="btn btn-danger" (click)="ConfigurerSlot(equip.id)"  >Configurer numbSlot</button>
+            <button  class="btn btn-danger" (click)="ajouterCarte(equip.id)"  >Ajouter Carte</button>
+        </td>
+        </tr>
+        
+        
+    
+    </tbody>
+    </table> -->
+
+    <router-outlet></router-outlet>
+    

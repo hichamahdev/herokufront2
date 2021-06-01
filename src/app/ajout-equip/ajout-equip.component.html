@@ -1,0 +1,21 @@
+<div class="container" style="text-align: center;" ><h2> Ajouter Un Equipement a un site</h2> </div>
+
+<form class="container"  (ngSubmit)= "ajouterEquipement()">
+
+    <div class="form-group">
+            <label for="equipement">select Equipement </label>
+            <select [(ngModel)]= "id_equip"  name= "nomEquip" id="title" type="text" class="form-control" >
+                <option *ngFor="let equip of equipements" [value]="equip.id">
+                        {{equip.nomEquip}}
+                </option>
+                </select>
+    </div>
+    
+    
+    
+    
+    <button class="btn btn-primary"  type="submit">Ajouter</button>&nbsp;&nbsp;&nbsp;
+    
+    
+
+</form>

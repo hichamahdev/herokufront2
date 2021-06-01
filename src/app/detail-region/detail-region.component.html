@@ -1,0 +1,61 @@
+<div class="container" style="text-align: center;" ><h2> Liste des Region</h2> </div>
+
+<div>
+   <div>
+        <label><b>nom Region:</b></label>{{region.nom}}
+    </div>
+   
+
+    <div>
+        <label ><b>Liste des SITES:</b></label>
+
+        
+       
+        <ul *ngFor="let site of region.site">
+            <li >
+              {{site.nom}}
+              <br>
+              
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label *ngIf="site.equipement?.length"><b>Liste des equipements de {{site.nom}}</b></label>
+             <ul *ngFor="let sitee of site.equipement">
+                <li>
+                  {{sitee.nomEquip}}
+
+                  <br>
+
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label *ngIf="sitee.carte?.length"><b>Liste des cartes {{sitee.nomEquip}}</b></label>
+                  <ul *ngFor="let siteee of sitee.carte">
+                  
+                    <li>
+                      {{siteee.nomCarte}}
+
+                      <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label *ngIf="sitee.portEquip?.length"><b>Liste des port {{sitee.nomEquip}}</b></label>
+                  <ul *ngFor="let siteeee of sitee.portEquip">
+                    <li>
+                      {{siteeee.nomPort}}
+                    
+                    </li>
+
+                  </ul>
+                    </li>
+                  </ul>
+
+                </li>
+              </ul>      
+            </li>
+            
+          </ul>
+
+         
+    </div>  
+    
+    
+
+    
+    
+
+
+</div>
+
+ 

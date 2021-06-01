@@ -1,0 +1,37 @@
+<div class="container" style="text-align: center;" ><h2> Liste des Ports</h2> </div>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"> Nom du port</th>
+            <th scope="col"> Type du port</th>
+            <th scope="col"> service du port</th>
+            <th scope="col"> Puissance du port</th>
+            
+           <th scope="col"> Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let port of ports">
+        <td>{{ port.nomPort }}</td>
+        <td>{{ port.typePort }}</td>
+        <td>{{ port.servicePort }}</td>
+        <td>{{ port.puissancePort }}</td>
+        
+        <td>
+            <button  class="btn btn-info" (click)= "updatePort(port.id)">Edit</button>&nbsp;&nbsp;&nbsp;
+            <button  class="btn btn-danger" (click)="deletePort(port.id)"  >Supprimer</button>
+        </td>
+        </tr>
+        
+        
+    
+    </tbody>
+    </table>
+
+    <router-outlet></router-outlet>
+
+    
+    

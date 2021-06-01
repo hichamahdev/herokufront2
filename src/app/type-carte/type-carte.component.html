@@ -1,0 +1,112 @@
+
+
+<!--
+<a  routerLink="/addcarte" class="btn btn-primary" style="margin-top: 1cm ; margin-bottom: 1cm;">Ajouter une carte</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"> Nom Carte</th>
+            <th scope="col"> Type</th>
+            <th scope="col"> Listes des Port</th>
+            <th scope="col"> Action</th>
+            
+            
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let cart of carte">
+        <td>{{cart.nomCarte}}</td>
+        <td>{{cart.typeCarte}}</td>
+        
+        <td> <ul *ngFor="let port of cart.port">
+            <li >
+              {{port.nomPort | json}}      
+            </li>
+          </ul>`</td>
+        
+        
+        
+        <td>
+          <button  class="btn btn-info" (click)="updateCarte(cart.id)"  >modifier la  la carte</button>
+          <button  class="btn btn-info" (click)="updateCarte(cart.id)"  >affiche carte</button>
+        </td>
+        </tr>
+        
+        
+    
+    </tbody>
+    </table> -->
+
+    <mat-toolbar color="primary">
+    
+      <span  >Liste des Cartes </span>
+      <span class="example-spacer" ></span>
+      
+    </mat-toolbar>
+    
+    <br>
+    
+    
+    <div class="search-div">
+          <button mat-raised-button routerLink="/addcarte">
+            <mat-icon>add</mat-icon>Ajouter Cartes
+          </button>
+    
+          <mat-form-field class="search-form-field">
+              <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+              <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+                <mat-icon>close</mat-icon>
+              </button>
+          </mat-form-field>
+    
+    </div>
+    
+    <div class="mat-elevation-z8">
+    <mat-table [dataSource]="listData" matSort>
+        <ng-container matColumnDef="nomCarte">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nom carte </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nomCarte}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="typeCarte">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> type carte </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.typeCarte}} </mat-cell>
+        </ng-container>
+       
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+            <mat-cell *matCellDef="let element"> 
+                
+    
+                  <button mat-icon-button  (click)= "updateCarte(element.id)" color="primary" matTooltip="edit ">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+
+                  <button (click)="deleteCarte(element.id)" mat-icon-button color="warn" matTooltip="delete equipement" >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+    
+                  <button mat-icon-button  (click)= "afficheCarte(element.id)" color="accent" matTooltip="detail carte" >
+                    <mat-icon>launch</mat-icon>
+                  </button>
+    
+                 
+    
+    
+    
+                
+            </mat-cell>
+        </ng-container>
+    
+    
+    
+     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"></mat-paginator>
+    
+    </div>
+
+    <router-outlet></router-outlet>
+    

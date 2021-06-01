@@ -1,0 +1,126 @@
+<div class="container" style="text-align: center;" ><h2> Ajouter Un Attribut</h2> </div>
+
+<form class="container"  (ngSubmit)= "createAttribut()">
+
+    <div class="form-group">
+        <label for="nomtype">nom du type </label>
+        <input [(ngModel)]= "attribut.nomtype"  name= "nomtype" id="title" type="text" class="form-control" >
+</div>
+
+   
+
+    <section class="form-group">
+        
+          
+        <mat-form-field appearance="fill">
+          <mat-label>Type de Valeur</mat-label>
+          <mat-select [(ngModel)]="attribut.typevaleur" name="point attach" matNativeControl required>
+            
+            <mat-option value="Alphanumérique">Alphanumérique</mat-option>
+            <mat-option value="Numérique">Numérique</mat-option>
+            <mat-option value="Date">Date</mat-option>
+            
+            
+          </mat-select>
+        </mat-form-field>
+    </section>
+
+    <div class="form-group">
+        <label for="taille"> taille (Longueur) </label>
+        <input [(ngModel)]= "attribut.taille"  name= "taille" id="title" type="number" class="form-control" >
+</div>
+
+<section class="example-section">
+    
+    <mat-radio-group [(ngModel)]="attribut.valeurreq" name="valeurreq">
+      <mat-radio-button class="example-margin" value="true">Valeur requise</mat-radio-button>
+      
+    </mat-radio-group>
+  </section>
+
+ 
+
+      <section class="form-group">
+        
+          
+          <mat-form-field appearance="fill">
+            <mat-label>Point d'attachement</mat-label>
+            <mat-select [(ngModel)]="attribut.pntattach" name="point atta" matNativeControl required>
+              
+              <mat-option value="Equipement">Equipement</mat-option>
+              <mat-option value="Carte">Carte</mat-option>
+              <mat-option value="Port">Port</mat-option>
+              
+              <mat-option value="Service">Service</mat-option>
+              <mat-option value="Client">Client</mat-option>
+            </mat-select>
+          </mat-form-field>
+      </section>
+
+      <section *ngIf="attribut.pntattach == 'Equipement' " class="form-group">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Equipement</mat-label>
+        <mat-select [(ngModel)]="attribut.equipements" name="equipements" multiple>
+          <mat-option *ngFor="let equipem of equipements" [value]="equipem">{{equipem.nomSupEquip}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </section>
+
+    <section *ngIf="attribut.pntattach == 'Carte' " class="form-group">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Carte</mat-label>
+        <mat-select [(ngModel)]="attribut.cartes" name="cartes" multiple>
+          <mat-option *ngFor="let carte of carte" [value]="carte">{{carte.nomCarte}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </section>
+
+    <section *ngIf="attribut.pntattach == 'Service' " class="form-group">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Service</mat-label>
+        <mat-select [(ngModel)]="attribut.services" name="services" multiple>
+          <mat-option *ngFor="let service of service" [value]="service">{{service.nomService}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </section>
+
+    <section *ngIf="attribut.pntattach == 'Client' " class="form-group">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Client</mat-label>
+        <mat-select [(ngModel)]="attribut.clients" name="client" multiple>
+          <mat-option *ngFor="let client of client" [value]="client">{{client.nomClient}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </section>
+
+    <section *ngIf="attribut.pntattach == 'Port' " class="form-group">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Port</mat-label>
+        <mat-select [(ngModel)]="attribut.ports" name="ports" multiple>
+          <mat-option *ngFor="let ports of ports" [value]="client">{{ports.nomPort}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </section>
+     
+
+
+  
+
+    
+    
+    <button class="btn btn-primary" type="submit">Ajouter</button>&nbsp;&nbsp;&nbsp;
+    
+    
+
+</form>
+

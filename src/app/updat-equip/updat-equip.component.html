@@ -1,0 +1,38 @@
+<div class="container" style="text-align: center;" ><h2> Modifier Un equipement</h2> </div>
+
+<form class="container"  (ngSubmit)= "onSubmit()">
+
+    <div class="form-group">
+            <label for="nomSupEquip">Nom Type Eqt </label>
+            <input [(ngModel)]= "equipement.nomSupEquip"  name= "nomSupEquip" id="title" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label for="nomEquip"> Nom </label>
+        <input [(ngModel)]= "equipement.nomEquip" name= "nomEquip" id="title" type="text" class="form-control" >
+</div>
+<div class="form-group">
+    <label for="categorieEquip">categorie </label>
+    <input [(ngModel)]= "equipement.categorieEquip" name= "categorieEquip" id="title" type="text" class="form-control" >
+    
+</div>
+<div class="form-group">
+    <label for="numbSlot">Nombre de slot</label>
+    <input [(ngModel)]= "equipement.numbSlot" name= "numbSlot" id="title" type="number" class="form-control" >
+</div>
+<div class="form-group">
+    <label for="numeroSlotMin">Num de slot min </label>
+    <input [(ngModel)]= "equipement.numeroSlotMin" name= "numeroSlotMin"   id="title" type="number" class="form-control" >
+    
+</div>
+<div class="form-group">
+    <label for="debitMax">Debit max</label>
+    <input [(ngModel)]= "equipement.debitMax" name= "debitMax" id="title" type="number" class="form-control" >
+</div>
+
+    
+    
+    <button class="btn btn-primary" type="submit">Modifier</button>&nbsp;&nbsp;&nbsp;
+    
+    
+
+</form>

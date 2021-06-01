@@ -1,0 +1,96 @@
+
+<mat-toolbar color="primary" >
+    
+    <span  >Liste des services</span>
+    <span class="example-spacer" ></span>
+    
+  </mat-toolbar>
+<br>
+
+<div class="search-div">
+    <button mat-raised-button routerLink="/addservice">
+      <mat-icon>add</mat-icon>Ajouter Service
+    </button>
+
+    <mat-form-field class="search-form-field">
+        <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+</div>
+
+<!-- <table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"> refference</th>
+            <th scope="col"> Nom Service </th>
+            <th scope="col"> Type Service </th>
+            
+            <th scope="col"> Action</th>
+            
+            
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let service of service">
+        <td>{{service.reference}}</td>
+        <td>{{service.nomService}}</td>
+        <td>{{service.typeService}}</td>
+        
+        
+        
+        
+        
+        <td>
+            <button mat-icon-button  (click)="deleteService(service.id)" aria-label="Example icon button with a home icon">
+                <mat-icon>delete</mat-icon>
+              </button>
+        </td>
+        </tr>
+        
+        
+    
+    </tbody>
+    </table>
+-->
+
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="listData" matSort>
+        <ng-container matColumnDef="reference">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> refference </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.reference}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="nomService">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nom Service </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nomService}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="typeService">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Type Service </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.typeService}} </mat-cell>
+      </ng-container>
+      
+   
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+            <mat-cell *matCellDef="let element"> 
+                <button (click)="deleteService(element.id)" mat-icon-button color="warn" matTooltip="delete Service" >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+
+            </mat-cell>
+        </ng-container>
+    
+    
+    
+     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"></mat-paginator>
+    
+    </div>
+
+    <router-outlet></router-outlet>
+    

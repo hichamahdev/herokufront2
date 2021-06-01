@@ -1,0 +1,57 @@
+<div class="container" style="text-align: center;" ><h2> Ajouter Un client</h2> </div>
+
+<form class="container"  (ngSubmit)= "createClient()">
+
+    <div class="form-group">
+        <label for="reference">Refference </label>
+        <input [(ngModel)]= "client.reference"  name= "reference" id="title" type="number" class="form-control" >
+</div>
+
+    <div class="form-group">
+            <label for="nomClient">Nom Client </label>
+            <input [(ngModel)]= "client.nomClient"  name= "nomClient" id="title" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label for="identifiant"> Identifiant </label>
+        <input [(ngModel)]= "client.identifiant" name= "identifiant" id="title" type="text" class="form-control" >
+</div>
+<div class="form-group">
+    <label for="Adress1">Adress 1 </label>
+    <input [(ngModel)]= "client.Adress1" name= "Adress1" id="title" type="text" class="form-control" >
+    
+</div>
+<div class="form-group">
+    <label for="Adress2">Adress 2</label>
+    <input [(ngModel)]= "client.Adress2" name= "Adress2" id="title" type="text" class="form-control" >
+</div>
+<div class="form-group">
+    <label for="Adress3">Adress 3</label>
+    <input [(ngModel)]= "client.Adress3" name= "Adress3" id="title" type="text" class="form-control" >
+</div>
+
+<div class="form-group">
+    <label for="departement">departement </label>
+    <input [(ngModel)]= "client.departement" name= "departement"   id="title" type="text" class="form-control" >
+    
+</div>
+<div class="form-group">
+    <label for="codePostale">code Postale </label>
+    <input [(ngModel)]= "client.codePostale" name= "codePostale"   id="title" type="number" class="form-control" >
+    
+</div>
+<div class="form-group">
+    <label for="ville">ville</label>
+    <input [(ngModel)]= "client.ville" name= "ville" id="title" type="text" class="form-control" >
+</div>
+<div class="form-group">
+    <label for="Pays"> Pays</label>
+    <input [(ngModel)]= "client.Pays" name= "Pays" id="title" type="text" class="form-control" >
+</div>
+
+    
+    
+    <button class="btn btn-primary" type="submit">Ajouter</button>&nbsp;&nbsp;&nbsp;
+    
+    
+
+</form>

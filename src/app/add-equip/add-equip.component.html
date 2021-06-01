@@ -1,0 +1,49 @@
+<div class="container" style="text-align: center;" ><h2> Ajouter Un equipement</h2> </div>
+
+<form class="container"  (ngSubmit)= "createEquipement()">
+
+    <div class="form-group">
+        <label for="nomSupEquip">Refference </label>
+        <input [(ngModel)]= "equipement.reference"  name= "reference" id="title" type="text" class="form-control" >
+</div>
+
+    <div class="form-group">
+            <label for="nomSupEquip">Nom Type Eqt </label>
+            <input [(ngModel)]= "equipement.nomSupEquip"  name= "nomSupEquip" id="title" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label for="nomEquip"> Nom </label>
+        <input [(ngModel)]= "equipement.nomEquip" name= "nomEquip" id="title" type="text" class="form-control" >
+</div>
+<div class="form-group">
+    <label for="categorieEquip">categorie </label>
+    <input [(ngModel)]= "equipement.categorieEquip" name= "categorieEquip" id="title" type="text" class="form-control" >
+    
+</div>
+<div class="form-group">
+    <label for="numbSlot">Nombre de slot</label>
+    <input [(ngModel)]= "equipement.numbSlot" name= "numbSlot" id="title" type="number" class="form-control" >
+</div>
+
+<div class="form-group">
+    <label for="numeroSlotMin">Num de slot min </label>
+    <input [(ngModel)]= "equipement.numeroSlotMin" name= "numeroSlotMin"   id="title" type="number" class="form-control" >
+    
+</div>
+<div class="form-group">
+    <label for="numeroSlotMin">Num de slot Fin </label>
+    <input [(ngModel)]= "equipement.numeroSlotFin" name= "numeroSlotFin"   id="title" type="number" class="form-control" >
+    
+</div>
+<div class="form-group">
+    <label for="debitMax">Debit max</label>
+    <input [(ngModel)]= "equipement.debitMax" name= "debitMax" id="title" type="number" class="form-control" >
+</div>
+
+    
+    
+    <button class="btn btn-primary" type="submit">Ajouter</button>&nbsp;&nbsp;&nbsp;
+    
+    
+
+</form>

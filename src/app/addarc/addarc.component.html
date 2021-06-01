@@ -1,0 +1,93 @@
+<div class="container" style="text-align: center;" ><h2> Ajouter Un Arc </h2> </div>
+
+
+
+
+<form class="container"  (ngSubmit)= "createArc()">
+
+    <div class="form-group">
+        <label for="region">select Region </label>
+        <select [(ngModel)]= "id_region"  (change)="onSelect($event.target.value)" name= "nomRegion" id="title"  class="form-control" >
+            <option *ngFor="let region of region" [value]="region.id">
+                    {{region.nom}}
+            </option>
+            
+            </select>
+
+
+          
+            
+</div>
+
+
+
+<div class="form-group">
+    <label for="anneau">select Anneau </label>
+    <select  [(ngModel)]="id_anneau" (change)="onSelectt($event.target.value)" name= "nomAnneau" id="title" type="text" class="form-control" >
+        <option  *ngFor="let anneau of anneau" [value]="anneau.id">
+                {{anneau.nom}}
+        </option>
+        </select>
+
+        
+       
+</div>
+
+<div class="form-group">
+    <label for="equipement">select Equipement </label>
+    <select   [(ngModel)]="id_equip"  (change)="onSelecttt($event.target.value)" id="title" name= "nomEquip"  class="form-control" >
+        <option  *ngFor="let equip of equipement" [value]="equip.id">
+                {{equip.nomEquip}}
+        </option>
+        </select>
+
+        
+       
+</div>
+
+<div class="form-group">
+    <label for="slot">select Slot </label>
+    <select   [(ngModel)]="id_slot"  (change)="onSelectttt($event.target.value)" id="title" name= "nomSlot"  class="form-control" >
+        <option  *ngFor="let slot of slot" [value]="slot.id">
+                {{slot.nomSlot}}
+        </option>
+        </select>
+
+        
+       
+</div>
+
+<div class="form-group">
+    <label for="port">select port </label>
+    <select   [(ngModel)]="id_port"  id="title" name= "nomPort"  class="form-control" >
+        <option  *ngFor="let port of port" [value]="port.id">
+                {{port.nomPort}} 
+        </option>
+
+        
+        </select>
+
+        {{id_port}}
+
+
+        
+       
+</div>
+
+
+
+
+
+
+    
+
+    
+    
+    
+    
+    <button class="btn btn-primary"  type="submit">Ajouter</button>&nbsp;&nbsp;&nbsp;
+    
+    
+
+</form>
+

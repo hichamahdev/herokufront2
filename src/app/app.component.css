@@ -1,0 +1,36 @@
+.example-icon {
+    padding: 0 14px;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .toolbar {
+        width: 100%;
+        height: 7%;
+        font-size: large;
+    
+  }
+
+  .toolbar span{
+      margin-left: 10%;
+     font-size: 1em;
+  }
+
+  .toolbar a{
+    margin-right: 2%;
+  }
+
+  .main-content{
+      margin-top: 30em;
+      display: flex;
+  }
+
+  .container{
+    margin-bottom: 100px;
+  }
+
+  
+  .footer {
+    margin-top: 50px;
+  }

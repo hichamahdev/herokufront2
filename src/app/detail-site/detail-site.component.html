@@ -1,0 +1,25 @@
+<div class="container" style="text-align: center;" ><h2> Liste des Region</h2> </div>
+
+<div>
+    <div>
+        <label><b>nom Site:</b></label>{{site.nom}}
+    </div>
+    <div>
+        <label><b>Liste des SITES:</b></label>
+        <ul *ngFor="let equip of site.equipement">
+            <li >
+              {{equip.nomEquip}}      
+            </li>
+            
+          </ul>
+    </div>  
+    
+    
+
+    
+    
+
+
+</div>
+
+ 

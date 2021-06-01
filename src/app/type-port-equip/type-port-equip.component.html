@@ -1,0 +1,110 @@
+<!--<div class="container" style="text-align: center;" ><h2> Liste des Ports</h2> </div>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"> Nom du port</th>
+            <th scope="col"> Type du port</th>
+            <th scope="col"> service du port</th>
+            <th scope="col"> Puissance du port</th>
+            
+           <th scope="col"> Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let port of ports">
+        <td>{{ port.nomPort }}</td>
+        <td>{{ port.typePort }}</td>
+        <td>{{ port.servicePort }}</td>
+        <td>{{ port.puissancePort }}</td>
+        
+        <td>
+            <button  class="btn btn-info" (click)= "updatePort(port.id)">Edit</button>&nbsp;&nbsp;&nbsp;
+            <button  class="btn btn-danger" (click)="deletePort(port.id)"  >Supprimer</button>
+        </td>
+        </tr>
+        
+        
+    
+    </tbody>
+    </table> -->
+
+    <mat-toolbar color="primary">
+    
+        <span  >Liste des Ports</span>
+        <span class="example-spacer" ></span>
+        
+      </mat-toolbar>
+      
+      <br>
+
+      <div class="search-div">
+        <button mat-raised-button routerLink="/addequipport">
+          <mat-icon>add</mat-icon>Ajouter Port
+        </button>
+      
+      
+      <div class="search-div">
+            
+      
+            <mat-form-field class="search-form-field">
+                <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+                <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+                  <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+      
+      </div>
+      
+      <div class="mat-elevation-z8">
+      <mat-table [dataSource]="listData" matSort>
+          
+          
+          
+        <ng-container matColumnDef="nomPort">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Nom Port </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.nomPort}} </mat-cell>
+          </ng-container>
+         
+        <ng-container matColumnDef="servicePort">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Service Port </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.servicePort}} </mat-cell>
+      </ng-container>
+          <ng-container matColumnDef="action">
+              <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+              <mat-cell *matCellDef="let element"> 
+                  <button (click)="deletePort(element.id)" mat-icon-button color="warn" matTooltip="delete equipement" >
+                      <mat-icon>delete</mat-icon>
+                    </button>
+      
+                    <button mat-icon-button  (click)= "updatePort(element.id)" color="primary" matTooltip="edit equipement">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+      
+                    <button mat-icon-button  (click)= "afficherDetails(element.id)" color="accent" matTooltip="detail equipement" >
+                      <mat-icon>launch</mat-icon>
+                    </button>
+      
+                    
+      
+      
+      
+                  
+              </mat-cell>
+          </ng-container>
+      
+      
+      
+       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"></mat-paginator>
+      
+      </div>
+
+    <router-outlet></router-outlet>
+
+    
+    

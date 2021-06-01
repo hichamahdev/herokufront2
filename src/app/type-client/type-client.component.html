@@ -1,0 +1,95 @@
+<mat-toolbar color="primary">
+    
+    <span  >Liste des Clients </span>
+    <span class="example-spacer" ></span>
+    
+  </mat-toolbar> 
+
+
+<br>
+
+<div class="search-div">
+      <button mat-raised-button routerLink="/addclient">
+        <mat-icon>add</mat-icon>Ajouter client
+      </button>
+
+      <mat-form-field class="search-form-field">
+          <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+          <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+            <mat-icon>close</mat-icon>
+          </button>
+      </mat-form-field>
+
+</div>
+
+<div class="mat-elevation-z8">
+<mat-table [dataSource]="listData" matSort>
+    <ng-container matColumnDef="nomClient">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> nom client </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nomClient}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="reference">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> reference </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.reference}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+            <button (click)="deleteClient(element.id)" mat-icon-button color="warn" matTooltip="delete client" matTooltip="delete client" >
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-icon-button  (click)="ajouterService(element.id)" color="accent" matTooltip="Ajouter service " >
+                <mat-icon>add</mat-icon>
+              </button>
+              
+        </mat-cell>
+    </ng-container>
+
+
+
+ <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"></mat-paginator>
+
+</div>
+
+
+
+<!-- <table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"> Nom Client</th>
+            <th scope="col"> Reference </th>
+            
+            <th scope="col"> Action</th>
+            
+            
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let client of client">
+        <td>{{client.nomClient}}</td>
+        <td>{{client.reference}}</td>
+        
+        
+        
+        
+        
+        <td>
+            <button mat-icon-button  (click)="deleteClient(client.id)" aria-label="Example icon button with a home icon">
+                <mat-icon>delete</mat-icon>
+              </button>
+
+              <button  class="btn btn-info" (click)="ajouterService(client.id)"  >ajouter Service</button>
+        </td>
+        </tr>
+        
+        
+    
+    </tbody>
+    </table> -->
+
+    <router-outlet></router-outlet>
+    

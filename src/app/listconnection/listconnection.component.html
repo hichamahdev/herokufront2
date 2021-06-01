@@ -1,0 +1,73 @@
+<mat-grid-list cols="10" rowHeight="1000px">
+    <mat-grid-tile
+        
+        [colspan]="2"
+        [rowspan]="1"
+        >
+        <mat-selection-list #typeportAaa  [(ngModel)]="selectedoption1" [multiple]="false">
+            <mat-card>
+                <mat-label>Type Port A</mat-label>
+            <mat-list-option  *ngFor="let typeport of typeportA" [value]="typeport.nom">
+               
+              {{typeport.nom}}
+              <mat-divider></mat-divider>
+            </mat-list-option>
+        </mat-card>
+          </mat-selection-list>
+          <p>
+           <!-- Option selected: {{typeports.selectedOptions.selected[0]?.value}} -->
+            Option selected 2: {{selectedoption1}}
+          </p> 
+    </mat-grid-tile>
+
+    <mat-grid-tile
+        
+    [colspan]="1"
+    [rowspan]="1"
+    >
+    <button class="btn btn-primary"  (click)="ajouterPortA()">Envoyer</button>
+</mat-grid-tile>
+
+<mat-grid-tile
+        
+        [colspan]="4"
+        [rowspan]="1"
+        >
+        
+       5
+
+    
+    </mat-grid-tile>
+
+
+
+
+
+<mat-grid-tile
+        
+[colspan]="1"
+[rowspan]="1"
+>
+<button class="btn btn-primary"  (click)="ajouterPortB()">Envoyer</button>
+</mat-grid-tile>
+<mat-grid-tile
+        
+[colspan]="2"
+[rowspan]="1"
+>
+<mat-selection-list #typeportss [(ngModel)]="selectedoption2" [multiple]="false">
+    <mat-card>
+        <mat-label>Type Port B</mat-label>
+    <mat-list-option *ngFor="let typeport of typeportB" [value]="typeport.nom">
+       
+      {{typeport.nom}}
+      <mat-divider></mat-divider>
+    </mat-list-option>
+</mat-card>
+  </mat-selection-list>
+  <p>
+    <!-- Option selected: {{typeports.selectedOptions.selected[0]?.value}} -->
+     Option selected : {{selectedoption2}}
+   </p> 
+</mat-grid-tile>
+  </mat-grid-list>

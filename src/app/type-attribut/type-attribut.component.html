@@ -1,0 +1,136 @@
+
+
+<mat-toolbar color="primary">
+    
+    <span  >Liste des Attribut </span>
+    <span class="example-spacerr" ></span>
+    
+  </mat-toolbar>
+  
+  <br>
+  
+  
+  <div class="search-div">
+        <button mat-raised-button routerLink="/addattribut">
+          <mat-icon>add</mat-icon>Ajouter Attribut
+        </button>
+  
+        <mat-form-field class="search-form-field">
+            <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+  
+  </div>
+
+  <section class="form-group">
+        
+        
+    <mat-form-field appearance="fill">
+      <mat-label>Point d'attachement</mat-label>
+      <mat-select [(ngModel)]="ptattach" name="point atta" matNativeControl required>
+        
+        
+        <mat-option value="Equipement">Equipement</mat-option>
+        <mat-option value="Carte">Carte</mat-option>
+        <mat-option value="Port">Port</mat-option>
+        
+        <mat-option value="Service">Service</mat-option>
+        <mat-option value="Client">Client</mat-option>
+      </mat-select>
+    </mat-form-field>
+</section>
+
+
+<mat-divider></mat-divider>
+  <mat-list *ngFor= "let att of attribut">
+    <mat-list-item  *ngIf="att.pntattach == ptattach">{{att.nomtype}}
+    
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <button *ngIf="att.pntattach == ptattach" (click)="deleteAttribut(att.id)" mat-icon-button color="warn" matTooltip="delete equipement" >
+      <mat-icon>delete</mat-icon>
+    </button>
+
+    <button *ngIf="att.pntattach == ptattach" mat-icon-button  (click)= "updateAttribut(att.id)" color="primary" matTooltip="edit equipement">
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    
+
+  </mat-list-item>
+    <mat-divider></mat-divider>
+    
+  </mat-list>
+<!--
+  <section class="form-group">
+        
+          
+    <mat-form-field appearance="fill">
+      <mat-label>Point d'attachement</mat-label>
+      <mat-select [(ngModel)]="ptattach" name="point atta" matNativeControl required>
+        
+        
+        <mat-option value="Equipement">Equipement</mat-option>
+        <mat-option value="Carte">Carte</mat-option>
+        <mat-option value="Port">Port</mat-option>
+        
+        <mat-option value="Service">Service</mat-option>
+        <mat-option value="Client">Client</mat-option>
+      </mat-select>
+    </mat-form-field>
+</section>
+  
+  <div class="mat-elevation-z8">
+  <mat-table [dataSource]="listData" matSort>
+      
+      <ng-container matColumnDef="nomtype" >
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nom du type</mat-header-cell>
+          <mat-cell *matCellDef="let element" >
+            <ng-container *ngIf="element.pntattach == ptattach">
+             {{element.nomtype}} 
+            </ng-container>
+            
+            </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="pntattach">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> type d'attachement</mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <ng-container *ngIf="element.pntattach == ptattach">
+          {{element.pntattach}} 
+        </ng-container>
+        </mat-cell>
+    </ng-container>
+    
+      <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <ng-container *ngIf="element.pntattach == ptattach">
+              <button (click)="deleteAttribut(element.id)" mat-icon-button color="warn" matTooltip="delete equipement" >
+                  <mat-icon>delete</mat-icon>
+                </button>
+  
+                <button mat-icon-button  (click)= "updateAttribut(element.id)" color="primary" matTooltip="edit equipement">
+                  <mat-icon>edit</mat-icon>
+                </button>
+  
+                <button mat-icon-button  (click)= "afficherDetails(element.id)" color="accent" matTooltip="detail equipement" >
+                  <mat-icon>launch</mat-icon>
+                </button>
+              </ng-container> 
+
+          </mat-cell>
+      </ng-container>
+  
+  
+  
+   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"></mat-paginator>
+  
+  </div>
+
+-->
+
+  <router-outlet></router-outlet>
+  

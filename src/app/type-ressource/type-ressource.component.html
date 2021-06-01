@@ -1,0 +1,70 @@
+
+
+<mat-toolbar color="primary">
+    
+    <span  >Liste des ressource </span>
+    <span class="example-spacerr" ></span>
+    
+  </mat-toolbar>
+  
+  <br>
+  
+  
+  <div class="search-div">
+        <button mat-raised-button routerLink="/addressourcee">
+          <mat-icon>add</mat-icon>Ajouter Ressource
+        </button>
+  
+        <mat-form-field class="search-form-field">
+            <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+  
+  </div>
+  
+  <div class="mat-elevation-z8">
+  <mat-table [dataSource]="listData" matSort>
+      
+      <ng-container matColumnDef="nom">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nom Ressource</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre des elements </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> type de Ressource </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+  </ng-container>
+      <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+          <mat-cell *matCellDef="let element"> 
+              <button (click)="deleteRessource(element.id)" mat-icon-button color="warn" matTooltip="delete equipement" >
+                  <mat-icon>delete</mat-icon>
+                </button>
+  
+                <button mat-icon-button  (click)= "updateRessource(element.id)" color="primary" matTooltip="edit equipement">
+                  <mat-icon>edit</mat-icon>
+                </button>
+  
+                <button mat-icon-button  (click)= "afficherDetails(element.id)" color="accent" matTooltip="detail equipement" >
+                  <mat-icon>launch</mat-icon>
+                </button>
+
+          </mat-cell>
+      </ng-container>
+  
+  
+  
+   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"></mat-paginator>
+  
+  </div>
+
+  <router-outlet></router-outlet>
+  

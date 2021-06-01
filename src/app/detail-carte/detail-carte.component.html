@@ -1,0 +1,34 @@
+<div class="container" style="text-align: center;" ><h2> Carte info</h2> </div>
+<div class="container">
+<button  class="btn btn-info" (click)= "addport(carte.id)">Ajouter un port</button>
+</div>
+<br>
+<br>
+
+<div >
+    <div>
+        <label><b>nom de la carte:</b></label>{{carte.nomCarte}}
+    </div>
+    <div>
+        <label><b>type de la carte:</b></label>{{carte.typeCarte}}
+    </div>
+    
+
+    <div>
+        <label><b>Liste des port:</b></label>
+        <ul *ngFor="let port of carte.port">
+            <li >
+              {{port.nomPort}}      
+            </li>
+            <button  class="btn btn-danger" (click)="deletePort(port.id)"  >Supprimer le port</button>
+            <button  class="btn btn-info" (click)="updatePort(port.id)"  >modifier le port</button>
+          </ul>
+    </div>  
+    
+
+
+</div>
+
+
+
+ 

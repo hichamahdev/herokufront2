@@ -1,0 +1,25 @@
+.svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.footerboh{
+    
+        position: fixed;
+       
+        width: 100%;
+        background-color:#3f51b5;
+        color: white;
+        text-align: center;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin-bottom: 0px;
+
+        flex-shrink: 0;
+
+      
+    
+    
+}
+

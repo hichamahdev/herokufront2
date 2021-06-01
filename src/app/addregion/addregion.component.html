@@ -1,0 +1,20 @@
+<div class="container" style="text-align: center;" ><h2> Ajouter Un Region</h2> </div>
+
+<form class="container"  (ngSubmit)= "createRegion()">
+
+    <div class="form-group">
+            <label for="nomSupEquip">Nom Region </label>
+            <input [(ngModel)]= "region.nom"  name= "nomRegion" id="title" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label for="typeCarte"> Note </label>
+        <textarea [(ngModel)]= "region.note" name= "noteRegion" id="title" type="text" class="form-control" ></textarea>
+</div>
+
+    
+    
+    <button class="btn btn-primary" type="submit">Ajouter</button>&nbsp;&nbsp;&nbsp;
+    
+    
+
+</form>
